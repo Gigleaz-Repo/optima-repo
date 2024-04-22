@@ -93,6 +93,21 @@ body {
   font-size: 1.5rem;
 }
 
+.hamburger i {
+  transition: transform 0.3s ease-in-out;
+}
+
+.hamburger.cross i {
+  transform: rotate(45deg);
+}
+
+.hamburger.cross i:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.cross i:nth-child(3) {
+  transform: rotate(-45deg);
+}
 .container {
   width: 100%;
   display: flex;
@@ -171,12 +186,11 @@ body {
 }
 
 .mission-card {
-  width: 397.33px;
+  width: 285.33px;
   height: 127px;
   border-radius: 12px;
   padding: 16px;
   gap: 11px;
-  width: calc(33.33% - 20px);
   background-color: #ffffff;
   box-shadow: 4px 12px 32px 0px #00000026;
   border: 2px solid #289476;
@@ -276,50 +290,96 @@ input[type="radio"] {
   margin-top: 10%;
 }
  
-.mobile-testimonial{
-  display: none;
-}
-.mobile-testimonial{
-  width:360px;
-  height:368px;
-  margin:0 auto;
-  padding:16px;
-
-}
-
-.testimonial-container{
-  width:328px;
-  height:336px;
-  border-radius:12px;
-  padding:16px;
-  background-image: url('Assests/background_.png');
-  background: #D7FEE2;
-  box-shadow: 4px 4px 16px 0px #0000000A;
-  margin:0 auto;
-}
-
-.testimonial-container h1{
-  font-size:18px;
-  font-weight: 700;
-  color:#289476;
+.carsoul_testimonial{
+  margin-top: 30px;
   text-align: center;
-  margin-bottom:15px
+  color: teal;
+  font-size: 2.2em;
+  letter-spacing: 0.01em;
 }
-
-.testimonial-card{
-  width:296px;
-  height:253px;
-  border-radius:12px;
-  padding:28px 16px;
-  background-color: #FFFFFF;
-  box-shadow: 4px 6px 16px 0px #0000000A;
+.testimonials {
+  max-width: 800px;
+  margin: auto;
+  padding: 15px;
+  text-align: center;
+  position: relative;
 }
-
-.testimonial-img{
+.scroller {
+  overflow-x: hidden;
   display: flex;
-  gap:14px
+  scroll-snap-type: x mandatory;
 }
 
+
+.item {
+  min-width: 100%;
+  scroll-snap-align: center;
+  background-color: white;
+  margin-bottom: 10px;
+  padding: 0 50px;
+}
+.item img {
+  margin: 15px auto -60px;
+  width: 120px;
+  height: 120px;
+  border: solid 4px #ffffff;
+  border-radius: 60px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+.card {
+  background-color: rgb(237, 242, 247);
+  padding: 80px 40px 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+.card p {
+  font-style: italic;
+  line-height: 1.6;
+}
+.card span {
+  display: block;
+  margin-top: 20px;
+  color: teal;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.testimonials .btn {
+  position: absolute;
+  top: 50%;
+  margin-top: 20px;
+  height: 30px;
+  width: 30px;
+  border-radius: 15px;
+  background-color: rgba(95, 106, 117, 0.3);
+  z-index: 1;
+  line-height: 30px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  padding:2px
+}
+
+.testimonials .btn.next {
+  right: 15px;
+}
+.testimonials .btn.prev {
+  left: 15px;
+  padding:2px
+}
+.checked {
+  color: orange;
+}
+@media screen and (max-width: 480px) {
+  .item {
+      padding: 0 30px;
+  }
+  .card {
+      padding: 80px 30px 30px;
+  }
+}
 .review-message{
   margin-top:25px;
   width:264px;
@@ -398,7 +458,7 @@ input[type="radio"] {
     padding: 10px 0;
   }
 
-  .nav-links a.active {
+  .nav-links a .active {
     margin-left: 10px;
     border-left: 2px solid #289476;
     padding: 5px;
@@ -471,34 +531,35 @@ input[type="radio"] {
 
 @media screen and (max-width: 767px) {
   .mission-card {
-    width: calc(50% - 10px);
-    padding: 16px;
-  }
-
+    width: 125px;
+    padding: 11px;
+    height: 59px;
+}
   .mission-card h3 {
-    font-size: 14px;
+    font-size: 10px;
     /* line-height: 21px; */
     text-align: center;
-    /* font-weight: 400; */
   }
 
   .mission-card p {
     display: none;
   }
+  .mission-container h1{
+    font-size: 22px;
+  }
 }
 
 @media screen and (max-width: 375px) {
   .mission-card {
-    width: 158px;
-    height: 95px;
+    width: 117px;
+    height: 68px;
     /* width: calc(100% - 20px); */
     padding: 16px;
   }
   .mission-card h3 {
-    font-size: 14px;
+    font-size:8px;
     line-height: 21px;
     text-align: center;
-    /* font-weight: 400; */
   }
 }
 
@@ -530,19 +591,6 @@ input[type="radio"] {
 
   .image-section {
     display: none;
-  }
-}
-
-/* Mobile Testimonials */
-@media screen and (max-width: 768px){
-  .mobile-testimonial{
-      display: block;
-  }
-}
-
-@media screen and (max-width: 480px){
-  .mobile-testimonial{
-      display: block;
   }
 }
 
